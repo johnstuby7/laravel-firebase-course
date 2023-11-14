@@ -61,10 +61,48 @@ Route::get('/', function () {
     - from: return (new Firebase);
     - to this: return dd(new Firebase);
 
--
+- Navigate to Firebase website for the project, select build/authentication and select sign in method
+
+  - enable email/password
+  - Click add user and add a test user such as johnstuby@mail.com with a password
+
+- Create a new controller:
+  - in the terminal run: php artisan make:controller AuthController
+  - Make the controller look like this:
+  ```
+  <?php
+  ```
+
+namespace App\Http\Controllers;
+
+use App\Services\Firebase;
+use Illuminate\Http\Request;
+
+class AuthController extends Controller
+{
+public $auth;
+
+    public function __construct()
+    {
+        $this->auth = (new Firebase)->auth;
+    }
+
+    public function register(Request $request)
+    {
+        $this->auth->createUser([
+            "email" => $request->email,
+            "password" => $request->password,
+        ]);
+    }
+
+}
+
+```
 
 ## Resources:
 
 - https://www.digitalocean.com/community/tutorials/how-to-install-composer-on-ubuntu-20-04-quickstart
 - https://firebase-php.readthedocs.io/en/stable/overview.html#installation
 - https://firebase-php.readthedocs.io/en/stable/#quick-start
+- https://firebase-php.readthedocs.io/en/stable/user-management.html#create-a-user
+```
