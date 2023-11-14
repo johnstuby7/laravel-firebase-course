@@ -8,5 +8,8 @@ class Firebase {
   public function __construct()
   {
     $this->firebase = (new Factory)->withServiceAccount(base_path('firebase.json'));
+
+    $auth = $this->firebase->createAuth();
+    
   }
 }

@@ -67,7 +67,4 @@ Route::get('/', function () {
 
 - https://www.digitalocean.com/community/tutorials/how-to-install-composer-on-ubuntu-20-04-quickstart
 - https://firebase-php.readthedocs.io/en/stable/overview.html#installation
-
-```
-
-```
+- https://firebase-php.readthedocs.io/en/stable/#quick-start
