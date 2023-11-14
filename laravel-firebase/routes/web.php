@@ -1,5 +1,6 @@
 <?php
 
+use App\Services\Firebase;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    return dd(new Firebase);
     return view('welcome');
 });
