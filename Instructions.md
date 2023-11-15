@@ -128,7 +128,11 @@ public $auth;
 - create a controller for the realtime Database
 - click the plus beside the url for the realtime database, add in users, then click the plus besdie that and add in status/online
 -  in postman createa  new section for realtime db
--
+- navigate to rules and add the following:
+  "users": {
+        ".indexOn": ["status"]
+      }
+  }
 
 ## Resources:
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Services\Firebase;
 use Illuminate\Http\Request;
+use Kreait\Firebase\Database\Query\Filter\LimitToFirst;
 
 class DatabaseController extends Controller
 {
@@ -25,5 +26,22 @@ class DatabaseController extends Controller
         $ref->push($request->all());
 
         return response()->json();
+    }
+
+    public function index()
+    {
+        $ref = $this->db->getReference('users');
+
+        // $users = $ref->getValue();
+
+        // Select only users with online status
+        $users = $ref->orderByChild('status')->equalTo('online')->getValue();
+        // $users = $ref->orderByChild('status')->equalTo('offline')->LimitToFirst(10)->getValue();
+        // $users = $ref->orderByChild('status')->equalTo('offline')->LimitToLast(10)->getValue();
+        // $users = $ref->orderByChild('age')->startAt(25)->LimitToLast(10)->getValue();
+        // $users = $ref->orderByChild('age')->equalTo(25)->LimitToLast(10)->getValue();
+
+        return response()->json(compact('users'));
+
     }
 }
