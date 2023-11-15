@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Services\Firebase;
 use Illuminate\Http\Request;
 use Kreait\Firebase\Auth\UserQuery;
+use Kreait\Firebase\Exception\Auth\UserNotFound;
+use Log;
 
 class AuthController extends Controller
 {
@@ -61,5 +63,19 @@ class AuthController extends Controller
 
         $users = $this->auth->getUsers(['mMfKzU6mlYPG9jEDjlWhdYCaErT2','2','3']);
         return response()->json(compact('users'));
+    }
+
+    public function show(Request $request)
+    {
+        // $user = $this->auth->getUser($request->uid);
+        
+        try {
+            $user = $this->auth->getUserByEmail($request->email);
+        } catch (UserNotFound $th) {
+            Log::info($th->getMessage());
+            abort(404);
+        }
+
+        return response()->json(compact('user'));
     }
 }
