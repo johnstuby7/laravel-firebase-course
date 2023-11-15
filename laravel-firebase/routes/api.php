@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DatabaseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,3 +20,7 @@ Route::get('user',[AuthController::class,'show']);
 
 // Delete User
 Route::delete('user',[AuthController::class,'delete']);
+
+Route::prefix('real-db')->group(function() {
+    Route::post('/',[DatabaseController::class, 'store']);
+});

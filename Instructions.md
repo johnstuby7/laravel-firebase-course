@@ -126,6 +126,8 @@ public $auth;
 - select test mode
 - Create a config file for the database
 - create a controller for the realtime Database
+- click the plus beside the url for the realtime database, add in users, then click the plus besdie that and add in status/online
+-  in postman createa  new section for realtime db
 -
 
 ## Resources:
