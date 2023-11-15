@@ -78,4 +78,11 @@ class AuthController extends Controller
 
         return response()->json(compact('user'));
     }
+
+    public function delete()
+    {
+        // $user = $this->auth->deleteUser('mMfKzU6mlYPG9jEDjlWhdYCaErT2');
+        $user = $this->auth->deleteUsers(['mMfKzU6mlYPG9jEDjlWhdYCaErT2', ''],true);
+        return response()->json([], 204);
+    }
 }

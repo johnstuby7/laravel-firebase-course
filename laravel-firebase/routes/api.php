@@ -16,3 +16,6 @@ Route::get('users',[AuthController::class,'index']);
 
 // Single User
 Route::get('user',[AuthController::class,'show']);
+
+// Delete User
+Route::delete('user',[AuthController::class,'delete']);
