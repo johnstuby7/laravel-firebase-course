@@ -34,6 +34,24 @@ class AuthController extends Controller
             'email' => $request->email,
             'password' => $request->password
         ]);
+
         return response()->json(['msg'=> 'User Updated']);
+    }
+
+    public function disable()
+    {
+        $this->auth->disableUser('mMfKzU6mlYPG9jEDjlWhdYCaErT2');
+        return response()->json(['msg' => 'User Disabled']);
+    }
+
+    public function enable()
+    {
+        $this->auth->enableUser('mMfKzU6mlYPG9jEDjlWhdYCaErT2');
+        return response()->json(['msg' => 'User Enabled']);
+    }
+
+    public function index()
+    {
+        return response()->json('');
     }
 }
