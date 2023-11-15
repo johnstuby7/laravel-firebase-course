@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Services\Firebase;
 use Illuminate\Http\Request;
+use Kreait\Firebase\Auth\UserQuery;
 
 class AuthController extends Controller
 {
@@ -52,6 +53,13 @@ class AuthController extends Controller
 
     public function index()
     {
-        return response()->json('');
+        // $users = $this->auth->listUsers();
+        // $users = collect($users);
+
+        // $query = UserQuery::all()->withOffset(1)->withLimit(100)->sortedBy(UserQuery::FIELD_CREATED_AT);
+        // $users = $this->auth->queryUsers($query);
+
+        $users = $this->auth->getUsers(['mMfKzU6mlYPG9jEDjlWhdYCaErT2','2','3']);
+        return response()->json(compact('users'));
     }
 }
