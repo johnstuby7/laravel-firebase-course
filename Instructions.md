@@ -99,6 +99,26 @@ public $auth;
 
 ```
 
+- Updated api.php to have a post route for registration
+
+- Install postman
+- use the register route in postman to create a user
+
+- Update authController to have:
+```
+
+    public function login(Request $request)
+    {
+        $login = $this->auth->signInWithEmailAndPassword($request->email, $request->password);
+        dd($login);
+    }
+
+```
+
+- Test out that it is working properly by using postman route: http://127.0.0.1:8000/api/login with the user we created before, it should return all the data
+
+-
+
 ## Resources:
 
 - https://www.digitalocean.com/community/tutorials/how-to-install-composer-on-ubuntu-20-04-quickstart
