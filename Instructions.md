@@ -117,6 +117,15 @@ public $auth;
 
 - Test out that it is working properly by using postman route: http://127.0.0.1:8000/api/login with the user we created before, it should return all the data
 
+
+
+## Real time database setup and config:
+- navigate to firebase
+- click on build/realtime database
+- select closest option (US)
+- select test mode
+- Create a config file for the database
+- create a controller for the realtime Database
 -
 
 ## Resources:
