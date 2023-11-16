@@ -50,10 +50,7 @@ class DatabaseController extends Controller
 
         $user = $ref->orderByChild('id')->equalTo(1)->getValue();
 
-        dd($user);
-
         $key = array_key_first($user);
-        dd($key);
         
         $userRef = $this->db->getReference('users/'.$key.'/status');
 
@@ -63,5 +60,23 @@ class DatabaseController extends Controller
 
         $userRef->set('offline');
         return response()->json();
+    }
+
+    public function delete()
+    {
+        $ref = $this->db->getReference('users');
+
+        $user = $ref->orderByChild('id')->equalTo(1)->getValue();
+
+        $key = array_key_first($user);
+        
+        $userRef = $this->db->getReference('users/'.$key);
+
+        $userRef->remove();
+
+        // To remove all users
+        // $ref->set(null);
+
+        return response()->json(status:204);
     }
 }
