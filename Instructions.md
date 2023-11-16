@@ -134,6 +134,17 @@ public $auth;
       }
   }
 
+- make sure that all needed fields are referenced in the rules:
+{
+  "rules": {
+    ".read": "now < 1702623600000",  // 2023-12-15
+    ".write": "now < 1702623600000",  // 2023-12-15
+      "users": {
+        ".indexOn": ["status", "age", "id"]
+      }
+  }
+}
+
 ## Resources:
 
 - https://www.digitalocean.com/community/tutorials/how-to-install-composer-on-ubuntu-20-04-quickstart

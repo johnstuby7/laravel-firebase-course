@@ -42,6 +42,26 @@ class DatabaseController extends Controller
         // $users = $ref->orderByChild('age')->equalTo(25)->LimitToLast(10)->getValue();
 
         return response()->json(compact('users'));
+    }
 
+    public function update() 
+    {
+        $ref = $this->db->getReference('users');
+
+        $user = $ref->orderByChild('id')->equalTo(1)->getValue();
+
+        dd($user);
+
+        $key = array_key_first($user);
+        dd($key);
+        
+        $userRef = $this->db->getReference('users/'.$key.'/status');
+
+        // $userRef->update([
+        //     'status' => 'online'
+        // ]);
+
+        $userRef->set('offline');
+        return response()->json();
     }
 }
