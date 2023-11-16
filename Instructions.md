@@ -145,6 +145,9 @@ public $auth;
   }
 }
 
+
+- Cloud Firestore:
+- composer require google/cloud-firestore
 ## Resources:
 
 - https://www.digitalocean.com/community/tutorials/how-to-install-composer-on-ubuntu-20-04-quickstart
